@@ -110,6 +110,9 @@ initialize the object
  	//Here get the Success status then show the corresponding message.
 	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
 	__txRespons_obj.status!=nil ) { 
+	
+	//set value of payment account data token for transaction with token methos
+	 obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken;
 					}
 
 <h2>1.2 -(void)authoriseWToken:(BOOL)isWithToken;</h2><br/>
