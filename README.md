@@ -61,36 +61,36 @@ The method is responsible for the invocation of verify operation on the Velocity
 	19.transactionDateTime - String   <br/>
 20.city -String <br/>
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
-VelocityPaymentTransaction *vPTMCObj;  //velocityProcessorTransactionModelClass Object<br/>
-vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the modal class object<br/>
-
-    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.country = self.countryTxtField.text; <br/>
-    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.cardholderName = self.nameTxtField.text; <br/>
-    vPTMCObj.panNumber=self.creditCardNotxtField.text; <br/>
-    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; <br/>
-    vPTMCObj.street = self.streetTxtField.text; <br/>
-    vPTMCObj.city = self.cityTxtField.text; <br/>
-    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.accountType=@"NotSet";<br/>
-    vPTMCObj.postalCode = self.zipTxtField.text; <br/>
-    vPTMCObj.phone= self.phoneTxtField.text; <br/>
-    vPTMCObj.cvDataProvided = @"Provided";<br/>
-    vPTMCObj.cVData = self.cVCtxtField.text; <br/>
-    vPTMCObj.amount = self.testCashTxtField.text; <br/>
-    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; <br/>
-    vPTMCObj.customerPresent = @"Present";<br/>
-    vPTMCObj.employeeId = self.customerIDtxtField.text; <br/>
-    vPTMCObj.entryMode = @"Keyed";<br/>
-    vPTMCObj.industryType = @"Ecommerce";<br/>
-    vPTMCObj.email = self.emailTxtField.text; <br/>
-    vPTMCObj.countryCode = @"USA";<br/>
-    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";<br/>
-    
-    [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 <b>Sample code</b><br/> 
+
+    VelocityPaymentTransaction *vPTMCObj;  //velocityProcessorTransactionModelClass Object
+    vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the modal class object
+    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
+    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
+    vPTMCObj.country = self.countryTxtField.text; 
+    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
+    vPTMCObj.cardholderName = self.nameTxtField.text; 
+    vPTMCObj.panNumber=self.creditCardNotxtField.text; 
+    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+    vPTMCObj.street = self.streetTxtField.text; 
+    vPTMCObj.city = self.cityTxtField.text; 
+    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; 
+    vPTMCObj.accountType=@"NotSet";
+    vPTMCObj.postalCode = self.zipTxtField.text; 
+    vPTMCObj.phone= self.phoneTxtField.text; 
+    vPTMCObj.cvDataProvided = @"Provided";
+    vPTMCObj.cVData = self.cVCtxtField.text; 
+    vPTMCObj.amount = self.testCashTxtField.text; 
+    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
+    vPTMCObj.customerPresent = @"Present";
+    vPTMCObj.employeeId = self.customerIDtxtField.text; 
+    vPTMCObj.entryMode = @"Keyed";
+    vPTMCObj.industryType = @"Ecommerce";
+    vPTMCObj.email = self.emailTxtField.text; 
+    vPTMCObj.countryCode = @"USA";
+    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
+    [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
+
        1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
 initialize response view class to store values in its variable
 make property of VelocityResponase class
