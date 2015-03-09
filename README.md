@@ -67,12 +67,10 @@ vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the moda
     vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal]; <br/>
     vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
     vPTMCObj.country = self.countryTxtField.text; <br/>
-    vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text; <br/>
     vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; <br/>
     vPTMCObj.cardholderName = self.nameTxtField.text; <br/>
     vPTMCObj.panNumber=self.creditCardNotxtField.text; <br/>
     vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; <br/>
-    vPTMCObj.isNullable = false; <br/>
     vPTMCObj.street = self.streetTxtField.text; <br/>
     vPTMCObj.city = self.cityTxtField.text; <br/>
     vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
@@ -89,39 +87,8 @@ vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the moda
     vPTMCObj.industryType = @"Ecommerce";<br/>
     vPTMCObj.email = self.emailTxtField.text; <br/>
     vPTMCObj.countryCode = @"USA";<br/>
-    vPTMCObj.businnessName = @"MomCorp";<br/>
-    vPTMCObj.CustomerId = @"11";<br/>
-    vPTMCObj.comment = @"a test comment";<br/>
-    vPTMCObj.discription = @"a test description";<br/>
-    vPTMCObj.reportingDataReference = @"001";<br/>
-    vPTMCObj.transactionDataReference = @"xyt";<br/>
     vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";<br/>
-    vPTMCObj.cashBackAmount = @"0.0";<br/>
-    vPTMCObj.goodsType = @"NotSet";<br/>
-    vPTMCObj.invoiceNumber = @"808";<br/>
-    vPTMCObj.orderNumber = @"629203";<br/>
-    vPTMCObj.FeeAmount = @"1000.05";<br/>
-    vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
-    vPTMCObj.keySerialNumber=@"";<br/>
-    vPTMCObj.identificationInformation=@"";<br/>
-    vPTMCObj.ecommerceSecurityData = @"";<br/>
-    vPTMCObj.track1Data = @"";<br/>
-    vPTMCObj.street2 = @"";<br/>
-    vPTMCObj.fax = @"";<br/>
-    vPTMCObj.customerTaxId = @"";<br/>
-    vPTMCObj.shippingData = @"";<br/>
-    vPTMCObj.securePaymentAccountData = @"";<br/>
-    vPTMCObj.encryptionKeyId = @"";<br/>
-    vPTMCObj.swipeStatus = @"";<br/>
-    vPTMCObj.approvalCode = @"";<br/>
-    vPTMCObj.internetTransactionData = @"";<br/>
-    vPTMCObj.isPartialShipment = false; <br/>
-    vPTMCObj.isSignatureCaptured = false; <br/>
-    vPTMCObj.terminalID = @"";<br/>
-    vPTMCObj.partialApprovalCapable = @"NotSet";<br/>
-    vPTMCObj.scoreThreshold = @"";<br/>
-    vPTMCObj.isQuasiCash=false; <br/>
-   
+    
     [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 <b>Sample code</b><br/> 
        1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
