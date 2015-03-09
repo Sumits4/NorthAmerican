@@ -61,8 +61,8 @@ The method is responsible for the invocation of verify operation on the Velocity
 	19.transactionDateTime - String   <br/>
 20.city -String <br/>
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
-VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object<br/>
-vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object<br/>
+VelocityPaymentTransaction *vPTMCObj;  //velocityProcessorTransactionModelClass Object<br/>
+vPTMCObj=[PaymentObjecthandler getModelObject];  //method to initialize the modal class object<br/>
 
     vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal]; <br/>
     vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
@@ -122,13 +122,16 @@ vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal 
     vPTMCObj.scoreThreshold = @"";<br/>
     vPTMCObj.isQuasiCash=false; <br/>
    
-    [PaymentObjecthandler setModelObject:vPTMCObj]; <br/>
+    [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 <b>Sample code</b><br/> 
        1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
 initialize response view class to store values in its variable
+make property of VelocityResponase class
 @property (strong, nonatomic) VelocityResponse *_txRespons_obj;
+initialize the object 
  self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
        2.Get the success or Error response from API.<br/> 
+       
 2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
       
  //Here get the Error status then show the corresponding message.	
@@ -138,6 +141,7 @@ initialize response view class to store values in its variable
  //Here get the Success status then show the corresponding message.
 if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& __txRespons_obj.status!=nil ) { 
 }
+
 <h2>1.2 -(void)authoriseWToken:(BOOL)isWithToken;</h2><br/>
 The method is responsible for the invocation of authorize operation on the Velocity REST server.<br/>
 <b>[velocityProcessorObj authoriseWToken:YES];</b><br/>
