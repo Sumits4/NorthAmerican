@@ -110,7 +110,8 @@ initialize the object
  	//Here get the Success status then show the corresponding message.
 	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
 	__txRespons_obj.status!=nil ) { 
-	
+	//initialise VelocityPaymentTransactionModalClass object
+	VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];
 	//set value of payment account data token for transaction with token methos
 	 obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken;
 					}
