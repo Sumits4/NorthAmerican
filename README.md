@@ -159,8 +159,8 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
                37.orderNumber - String      <br/>
 	38.FeeAmount - String   <br/>
 	
-    <h2>How to set the Ui value on VelocityPaymentTransaction model</h2><br/>
-    <b>Sample code</b><br/> 
+<h2>How to set the Ui value on VelocityPaymentTransaction model</h2><br/>
+<b>Sample code</b><br/> 
     
     VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
     vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
