@@ -94,9 +94,9 @@ The method is responsible for the invocation of verify operation on the Velocity
 
 1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
 initialize response view class to store values in its variable<br/>
-make property of VelocityResponase class<br/>
-@property (strong, nonatomic) VelocityResponse *_txRespons_obj;
-initialize the object 
+make property of VelocityResponase class <br/>
+@property (strong, nonatomic) VelocityResponse *_txRespons_obj;<br/>
+initialize the object<br/> 
  self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
 2.Get the success or Error response from API.<br/> 
        
