@@ -231,18 +231,28 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
     
     
 1.Request a [velocityProcessorObj authoriseWToken:YES]; method from API .<br/> 
+if calling with token then have to set value for vPTMCobj.paymentaccountdDatatoken.<br/>
+Other wise have to fill the card data information.
 2.Get the success or Error response from API.<br/> 
        
-	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
       
 	 //Here get the Error status then show the corresponding message.	
           if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
           class]]&&__txRespons_obj.errorId!=nil) { 
 						   }
-	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
  	//Here get the Success status then show the corresponding message.
 	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
 	__txRespons_obj.status!=nil ) { 
+	//Assign value for further transection data 
+	  
+	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
+		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>
+		obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken; //set value for payentAccount data                                            									token<br/>
+		obj.batchID =self._txRespons_obj.batchId; //set value for batchID<br/>
+	 
+	
 					}
 
 <h2>1.3 authAndCapture(...) </h2><br/>
