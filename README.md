@@ -1,18 +1,26 @@
 # IOS-sdk
 This is the velocity IOS SDK implementation. <br/>
 It has the implementation of all the transaction payment solution methods for a merchant application who wants to access the Velocity payment gateway. <br/><br/>
+
 At the center of this SDK, there is the class <b>VelocityProcessor</b>. <br/>
+
 The signature for initializing this class is as below: <br/>
+
 <b> - (VelocityProcessor *) initWith:(NSString *)identityToken forAppProfileId:(NSString *)appProfileId forMerchantProfileId:(NSString *)merchantProfileId forWorkflowId:(NSString *)workflowId andSessionToken:(NSString *)sessiontoken andType:(BOOL )isTestAccount; </b> <br/>
+
 @parameter  <b>sessionToken </b> - initializes the value for session token.  <br/>
 @parameter  <b>identityToken </b> - initializes the value for identity token.  <br/>
 @parameter  <b>appProfileId </b> - initializes the value for application profile Id.  <br/>
 @parameter  <b>merchantProfileId </b> - initializes the value for merchant profile Id.  <br/>
 @parameter  <b>workFlowId </b> - initializes the value for workflow Id.  <br/>
 @parameter  <b>isTestAccount </b> - works as a flag for the TestAccount.  <br/>
+
 Used in Sample App as <br/>
+
 <b> velocityProcessorObj= [[VelocityProcessor alloc] initWith:kIdentityToken forAppProfileId:kAppProfileId forMerchantProfileId:kMerchantProfileId forWorkflowId:KWorkflowId andSessionToken:nil andType:kisTestAccountBOOL ]; </b> <br/>
+
 <h2>1. VelocityProcessor </h2><br/>
+
 This class provides the implementation of the following methods: <br/>
      1. -(void)createCardTokenIsOnlySignOn:(BOOL)isSignOn;   <br/>
      2. -(void)authoriseWToken:(BOOL)isWithToken;<br/>
@@ -22,13 +30,14 @@ This class provides the implementation of the following methods: <br/>
      6. -(void)adjustAmount;<br/>
      7. -(void)returnById;<br/>
      8 .-(void)returnUnlinkedisWithToken:(BOOL)isWithToken;<br/><br/>
+     
 <b> The class also provides delegate for conveying success and error response </b> <br/>
-1. //delegate method for successful transaction
--(void)VelocityProcessorFinishedWithSuccess:(id )successAny;
-2.//delegate method for Failed transaction
--(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;
 
-<h2>1. -(void)createCardTokenIsOnlySignOn:NO;   </h2><br/>
+<h2>VelocityProcessor Delegates</h2><br/>
+1. -(void)VelocityProcessorFinishedWithSuccess:(id )successAny;   //delegate method for successful transaction<br/>
+2.-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;   //delegate method for Failed transaction<br/>
+
+<h2>1. -(void)createCardTokenIsOnlySignOn:NO; </h2><br/>
 The method is responsible for the invocation of verify operation on the Velocity REST server.<br/>
 @parameter <b>velocityPaymentTransaction </b> - holds the values for the verify request VelocityPaymentTransaction <br/>
                1.cardType - String     <br/>
