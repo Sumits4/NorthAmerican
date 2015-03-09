@@ -241,6 +241,7 @@ Other wise have to fill the card data information.
           class]]&&__txRespons_obj.errorId!=nil) { 
 						   }
 2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+
  	//Here get the Success status then show the corresponding message.
 	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
 	__txRespons_obj.status!=nil ) { 
