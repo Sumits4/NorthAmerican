@@ -39,16 +39,16 @@ This class provides the implementation of the following methods: <br/>
 
 <h2>1. -(void)createCardTokenIsOnlySignOn:NO; </h2><br/>
 The method is responsible for the invocation of verify operation on the Velocity REST server.<br/>
-@parameter <b>velocityPaymentTransaction </b> - holds the values for the verify request VelocityPaymentTransaction <br/>
+ <b>velocityPaymentTransaction Modal Class</b> - holds the values for the verify request VelocityPaymentTransaction <br/>
                1.cardType - String     <br/>
-2.cardholderName - String     <br/>
+		2.cardholderName - String     <br/>
                3.panNumber-String   <br/>
                4.expiryDate - String   <br/>
-	5.street - String   <br/>
+		5.street - String   <br/>
                6.stateProvince - String     <br/>
                7.postalCode - String   <br/>
                8.phone - String    <br/>
-	9.state - String     <br/>
+		9.state - String     <br/>
                10.cvDataProvided - String    <br/>
                11.cVData - String   <br/>
 	12.amount - String       <br/>
