@@ -119,7 +119,7 @@ The method is responsible for the invocation of authorize operation with token o
 <b>[velocityProcessorObj authoriseWToken:NO];</b><br/>
 The method is responsible for the invocation of authorize operation without token on the Velocity REST server.<br/>
 
-Values are set from modal class <b>velocityPaymentTransaction </b> - holds the values for the authorize request VelocityPaymentTransaction <br/>
+Values are set from modal class <b>velocityPaymentTransaction</b> - holds the values for the authorize request VelocityPaymentTransaction<br/>
             	1.cardType - String     <br/>
  2.cardholderName - String     <br/>
                3.panNumber-String   <br/>
@@ -159,7 +159,7 @@ Values are set from modal class <b>velocityPaymentTransaction </b> - holds the v
                37.orderNumber - String      <br/>
 	38.FeeAmount - String   <br/>
 	
-    <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
+    <h2>How to set the Ui value on VelocityPaymentTransaction model</h2><br/>
     <b>Sample code</b><br/> 
     
     VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
