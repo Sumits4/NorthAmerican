@@ -224,8 +224,8 @@ Values are set from modal class <b>velocityPaymentTransaction</b> - holds the va
     [PaymentObjecthandler setModelObject:vPTMCObj]; 
     
     
-      1.Request a [velocityProcessorObj authoriseWToken:YES]; method from API .<br/> 
-      2.Get the success or Error response from API.<br/> 
+1.Request a [velocityProcessorObj authoriseWToken:YES]; method from API .<br/> 
+2.Get the success or Error response from API.<br/> 
        
 	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
       
