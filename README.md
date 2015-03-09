@@ -34,7 +34,7 @@ This class provides the implementation of the following methods: <br/>
 <b> The class also provides delegate for conveying success and error response </b> <br/>
 
 <h2>VelocityProcessor Delegates</h2><br/>
-1. -(void)VelocityProcessorFinishedWithSuccess:(id )successAny;   //delegate method for successful transaction<br/>
+1.-(void)VelocityProcessorFinishedWithSuccess:(id )successAny;   //delegate method for successful transaction<br/>
 2.-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;   //delegate method for Failed transaction<br/>
 
 <h2>1. -(void)createCardTokenIsOnlySignOn:NO; </h2><br/>
@@ -93,8 +93,8 @@ The method is responsible for the invocation of verify operation on the Velocity
 
 
 1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
-initialize response view class to store values in its variable
-make property of VelocityResponase class
+initialize response view class to store values in its variable<br/>
+make property of VelocityResponase class<br/>
 @property (strong, nonatomic) VelocityResponse *_txRespons_obj;
 initialize the object 
  self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
