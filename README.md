@@ -91,23 +91,26 @@ The method is responsible for the invocation of verify operation on the Velocity
     vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
     [PaymentObjecthandler setModelObject:vPTMCObj]; //method which sets value into modal class<br/>
 
-       1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
+
+1.Request a [velocityProcessorObj createCardTokenIsOnlySignOn:NO];method from API .<br/> 
 initialize response view class to store values in its variable
 make property of VelocityResponase class
 @property (strong, nonatomic) VelocityResponse *_txRespons_obj;
 initialize the object 
  self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];<br/>
-       2.Get the success or Error response from API.<br/> 
+2.Get the success or Error response from API.<br/> 
        
-2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
       
- //Here get the Error status then show the corresponding message.	
-          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse class]]&&__txRespons_obj.errorId!=nil) { 
-}
-2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
- //Here get the Success status then show the corresponding message.
-if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& __txRespons_obj.status!=nil ) { 
-}
+	 //Here get the Error status then show the corresponding message.	
+          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
+          class]]&&__txRespons_obj.errorId!=nil) { 
+						   }
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ 	//Here get the Success status then show the corresponding message.
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
+	__txRespons_obj.status!=nil ) { 
+					}
 
 <h2>1.2 -(void)authoriseWToken:(BOOL)isWithToken;</h2><br/>
 The method is responsible for the invocation of authorize operation on the Velocity REST server.<br/>
@@ -116,7 +119,7 @@ The method is responsible for the invocation of authorize operation with token o
 <b>[velocityProcessorObj authoriseWToken:NO];</b><br/>
 The method is responsible for the invocation of authorize operation without token on the Velocity REST server.<br/>
 
-@Values are set from modal class <b>velocityPaymentTransaction </b> - holds the values for the authorize request VelocityPaymentTransaction <br/>
+Values are set from modal class <b>velocityPaymentTransaction </b> - holds the values for the authorize request VelocityPaymentTransaction <br/>
             	1.cardType - String     <br/>
  2.cardholderName - String     <br/>
                3.panNumber-String   <br/>
@@ -155,90 +158,86 @@ The method is responsible for the invocation of authorize operation without toke
                36.invoiceNumber - String     <br/>
                37.orderNumber - String      <br/>
 	38.FeeAmount - String   <br/>
+	
     <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
-	VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object<br/>
-vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object<br/>
-
-    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.country = self.countryTxtField.text; <br/>
-    vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text; <br/>
-    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.cardholderName = self.nameTxtField.text; <br/>
-    vPTMCObj.panNumber=self.creditCardNotxtField.text; <br/>
-    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; <br/>
-    vPTMCObj.isNullable = false; <br/>
-    vPTMCObj.street = self.streetTxtField.text; <br/>
-    vPTMCObj.city = self.cityTxtField.text; <br/>
-    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal]; <br/>
-    vPTMCObj.accountType=@"NotSet";<br/>
-    vPTMCObj.postalCode = self.zipTxtField.text; <br/>
-    vPTMCObj.phone= self.phoneTxtField.text; <br/>
-    vPTMCObj.cvDataProvided = @"Provided";<br/>
-    vPTMCObj.cVData = self.cVCtxtField.text; <br/>
-    vPTMCObj.amount = self.testCashTxtField.text; <br/>
-    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; <br/>
-    vPTMCObj.customerPresent = @"Present";<br/>
-    vPTMCObj.employeeId = self.customerIDtxtField.text; <br/>
-    vPTMCObj.entryMode = @"Keyed";<br/>
-    vPTMCObj.industryType = @"Ecommerce";<br/>
-    vPTMCObj.email = self.emailTxtField.text; <br/>
-    vPTMCObj.countryCode = @"USA";<br/>
-    vPTMCObj.businnessName = @"MomCorp";<br/>
-    vPTMCObj.CustomerId = @"11";<br/>
-    vPTMCObj.comment = @"a test comment";<br/>
-    vPTMCObj.discription = @"a test description";<br/>
-    vPTMCObj.reportingDataReference = @"001";<br/>
-    vPTMCObj.transactionDataReference = @"xyt";<br/>
-    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";<br/>
-    vPTMCObj.cashBackAmount = @"0.0";<br/>
-    vPTMCObj.goodsType = @"NotSet";<br/>
-    vPTMCObj.invoiceNumber = @"808";<br/>
-    vPTMCObj.orderNumber = @"629203";<br/>
-    vPTMCObj.FeeAmount = @"1000.05";<br/>
+    <b>Sample code</b><br/> 
+    
+    VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
+    vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
+    vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
+    vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
+    vPTMCObj.country = self.countryTxtField.text; 
+    vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text; 
+    vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
+    vPTMCObj.cardholderName = self.nameTxtField.text; 
+    vPTMCObj.panNumber=self.creditCardNotxtField.text; 
+    vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+    vPTMCObj.isNullable = false; 
+    vPTMCObj.street = self.streetTxtField.text; 
+    vPTMCObj.city = self.cityTxtField.text; 
+    vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal];
+    vPTMCObj.accountType=@"NotSet";
+    vPTMCObj.postalCode = self.zipTxtField.text;
+    vPTMCObj.phone= self.phoneTxtField.text;
+    vPTMCObj.cvDataProvided = @"Provided";
+    vPTMCObj.cVData = self.cVCtxtField.text; 
+    vPTMCObj.amount = self.testCashTxtField.text; 
+    vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
+    vPTMCObj.customerPresent = @"Present";
+    vPTMCObj.employeeId = self.customerIDtxtField.text;
+    vPTMCObj.entryMode = @"Keyed";
+    vPTMCObj.industryType = @"Ecommerce";
+    vPTMCObj.email = self.emailTxtField.text;
+    vPTMCObj.countryCode = @"USA";
+    vPTMCObj.businnessName = @"MomCorp";
+    vPTMCObj.CustomerId = @"11";
+    vPTMCObj.comment = @"a test comment";
+    vPTMCObj.discription = @"a test description";
+    vPTMCObj.reportingDataReference = @"001";
+    vPTMCObj.transactionDataReference = @"xyt";
+    vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
+    vPTMCObj.cashBackAmount = @"0.0";
+    vPTMCObj.goodsType = @"NotSet";
+    vPTMCObj.invoiceNumber = @"808";
+    vPTMCObj.orderNumber = @"629203";
+    vPTMCObj.FeeAmount = @"1000.05";
     vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
-    vPTMCObj.keySerialNumber=@"";<br/>
-    vPTMCObj.identificationInformation=@"";<br/>
-    vPTMCObj.ecommerceSecurityData = @"";<br/>
-    vPTMCObj.track1Data = @"";<br/>
-    vPTMCObj.street2 = @"";<br/>
-    vPTMCObj.fax = @"";<br/>
-    vPTMCObj.customerTaxId = @"";<br/>
-    vPTMCObj.shippingData = @"";<br/>
-    vPTMCObj.securePaymentAccountData = @"";<br/>
-    vPTMCObj.encryptionKeyId = @"";<br/>
-    vPTMCObj.swipeStatus = @"";<br/>
-    vPTMCObj.approvalCode = @"";<br/>
-    vPTMCObj.internetTransactionData = @"";<br/>
-    vPTMCObj.isPartialShipment = false; <br/>
-    vPTMCObj.isSignatureCaptured = false; <br/>
-    vPTMCObj.terminalID = @"";<br/>
-    vPTMCObj.partialApprovalCapable = @"NotSet";<br/>
-    vPTMCObj.scoreThreshold = @"";<br/>
-    vPTMCObj.isQuasiCash=false; <br/>
-   
-    [PaymentObjecthandler setModelObject:vPTMCObj]; <br/>
-<b>Sample code</b><br/> 
-       1.Request a authorizeToken() method from API .<br/> 
-       VelocityResponse velocityResponse=velocityProcessor.authorizeToken(velocityPaymentTransaction);<br/>
-       2.Get the success or Error response 	from API.<br/>  
+    vPTMCObj.keySerialNumber=@"";
+    vPTMCObj.identificationInformation=@"";
+    vPTMCObj.ecommerceSecurityData = @"";
+    vPTMCObj.track1Data = @"";
+    vPTMCObj.street2 = @"";
+    vPTMCObj.fax = @"";
+    vPTMCObj.customerTaxId = @"";
+    vPTMCObj.shippingData = @"";
+    vPTMCObj.securePaymentAccountData = @"";
+    vPTMCObj.encryptionKeyId = @"";
+    vPTMCObj.swipeStatus = @"";
+    vPTMCObj.approvalCode = @"";
+    vPTMCObj.internetTransactionData = @"";
+    vPTMCObj.isPartialShipment = false;
+    vPTMCObj.isSignatureCaptured = false; 
+    vPTMCObj.terminalID = @"";
+    vPTMCObj.partialApprovalCapable = @"NotSet";
+    vPTMCObj.scoreThreshold = @"";
+    vPTMCObj.isQuasiCash=false; 
+    [PaymentObjecthandler setModelObject:vPTMCObj]; 
+    
+    
+      1.Request a [velocityProcessorObj authoriseWToken:YES]; method from API .<br/> 
+      2.Get the success or Error response from API.<br/> 
        
-          if(velocityResponse!=null){ 
-          
-		    	//Here get the successful status then show the corresponding message.
-		    	
-				 if(velocityResponse.getBankcardTransactionResponse() != null && velocityResponse.getBankcardTransactionResponse().getStatus()!=null){ 
-				     Log.i("VelocityProcessor", "Authorize Token: " + velocityResponse.getBankcardTransactionResponse().getStatus()); 
-
-				   // TODO your business logic to complete payment...
-
-				 } else if(velocityResponse.getErrorResponse()!=null && velocityResponse.getErrorResponse().getErrorId()!=null){ 
-				 
-				   Log.i("VelocityProcessor", "Error response: " +velocityResponse.getErrorResponse().getErrorId());
-
-				   // TODO your business logic to complete payment...
-				}
-       }
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+      
+	 //Here get the Error status then show the corresponding message.	
+          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
+          class]]&&__txRespons_obj.errorId!=nil) { 
+						   }
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ 	//Here get the Success status then show the corresponding message.
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
+	__txRespons_obj.status!=nil ) { 
+					}
 
 <h2>1.3 authAndCapture(...) </h2><br/>
 The method is responsible for the invocation of authorizeAndCapture operation on the Velocity REST server.<br/>
@@ -363,23 +362,19 @@ The method is responsible for the invocation of capture operation on the Velocit
 <b>Sample code</b><br/> 
        1.Request a capture() method from API .<br/> 
        VelocityResponse velocityResponse=velocityProcessor.capture(velocityPaymentTransaction);<br/>
-       2.Get the success or Error response 	from API.<br/>  
+       2.Get the success or Error response from API.<br/> 
        
-          if(velocityResponse!=null){  
-		    	//Here get the successful status then show the corresponding message. 
-				 if(velocityResponse.getBankcardCaptureResponse()!=null && velocityResponse.getBankcardCaptureResponse().getStatus()!=null){  
-				     Log.i("VelocityProcessor", "Capture: " + velocityResponse.getBankcardCaptureResponse().getStatus());  
-
-				   // TODO your business logic to complete payment...
-
-				 } else if(velocityResponse.getErrorResponse()!=null && velocityResponse.getErrorResponse().getErrorId()!=null){  
-				 
-				   Log.i("VelocityProcessor", "Error response: " +velocityResponse.getErrorResponse().getErrorId()); 
-
-				   // TODO your business logic to complete payment...
-				}
-       }
-
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+      
+	 //Here get the Error status then show the corresponding message.	
+          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
+          class]]&&__txRespons_obj.errorId!=nil) { 
+						   }
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ 	//Here get the Success status then show the corresponding message.
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
+	__txRespons_obj.status!=nil ) { 
+					}
 <h2>1.5 undo(...) </h2><br/>
 The method is responsible for the invocation of undo operation on the Velocity REST server.<br/>
 <b> public VelocityResponse undo(VelocityPaymentTransaction velocityPaymentTransaction) </b><br/>
