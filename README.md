@@ -117,7 +117,7 @@ initialize the object<br/>
 	 obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken;
 					}
 
-<h2>1.2 authoriseWToken(...);</h2><br/>
+<h2>1.2 authorise(...);</h2><br/>
 The method is responsible for the invocation of authorize operation on the Velocity REST server.<br/>
 <b>[velocityProcessorObj authoriseWToken:YES];</b><br/>
 The method is responsible for the invocation of authorize operation with token on the Velocity REST server.<br/>
