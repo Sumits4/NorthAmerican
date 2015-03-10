@@ -652,12 +652,60 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
 <h2>2. VelocityResponse </h2><br/>
 
 This Modal class implements the responses coming from the Velocity server for a payment transaction request. <br/>
-It has the following attributes with name and datatype.<br/>
-     1.  statusCode - String <br/>
-     2.  message - String <br/>
-     3.  bankcardTransactionResponse - com.velocity.verify.response.BankcardTransactionResponsePro  <br/>
-     4.  bankcardCaptureResponse - com.velocity.verify.response.BankcardCaptureResponse    <br/>
-     5.  errorResponse - com.velocity.verify.response.ErrorResponse    <br/><br/>
+It has the following attributes with name and datatype is string.<br/>
+		1.status;
+		2.statusCode;
+		3.statusMessage;
+		4.transactionId;
+		5.originatorTransactionId;
+		6.serviceTransactionId;
+		7.serviceTransactionDateTime;
+		8.captureState;
+		9.transactionState;
+		10.acknowledged; //it is bool type
+		11.prepaidCard;
+		12.reference;
+		13.amount;
+		14.cardType;
+		15.feeAmount;
+		16.approvalCode;
+		17.aVSResult;
+		18.batchId;
+		19.cVResult;
+		20.cardLevel;
+		21.downgradeCode;
+		22.maskedPAN;
+		23.paymentAccountDataToken ;
+		24.retrievalReferenceNumber;
+		25.adviceResponse;
+		26.commercialCardResponse;
+		27.returnedACI;
+		28.statusHttpResponse;
+		29.statusCodeHttpResponse;
+		30.orderId;
+		31.settlementDate;
+		32.finalBalance;
+		33.cashBackAmount;
+		34.date;
+		35.time;
+		36.timeZone;
+		37.errorId;
+		38.helpUrl;
+		39.operation;
+		40.reason;
+		41.ruleMessage;
+		42.netAmount;
+		43.count;
+		44.httpCode;
+
+ it has one method which provides user an ease to get data from the modal class
+ 	
+ 		+(VelocityResponse *)getModelObject;
+ 	
+ sample code
+ 
+ 	@property (strong, nonatomic) VelocityResponse *_txRespons_obj;
+	self._txRespons_obj = [VelocityResponseObjectHandlers getModelObject];
 
 <h2>2.1 BankcardTransactionResponsePro</h2><br/>
 
@@ -782,7 +830,7 @@ This class has the following main attributes with its name and data-type.<br/>
 	 45.  city - String <br/>
 
 <h2>3.Velocity sample IOSApplication </h2><br/>
-The velocity  sample IOSApplication is responsible for putting the Velocity Android-SDK for test purpose. <br/>
+The velocity  sample IOSApplication is responsible for putting the Velocity IOS-SDK for test purpose. <br/>
 It intends to perform the testing of transaction methods available on the Velocity payment gateway for a merchant. <br/>
 
 When a transaction method needs to invoke from Velocity server then it sends the transaction request data and receives the response depending on the type of transaction performed on the velocity server.<br/>
@@ -802,25 +850,25 @@ The Velocity sample IOS Application is able to test the following transaction me
 10. ReturnUnlinked - The ReturnUnlinked operation is used to perform an "unlinked", or standalone, credit to a card-holder’s account from the merchant’s account. <br/>
 11. ReturnUnlinked W/O token - This method proceeds with the card details when payment account data token is not available.<br/>
 Depending upon the type of transaction performed with request input data, response is generated from the velocity server which can be viewed on the Result page. <br/>
-<h2>5.Download the Eclipse IDE</h2><br/>
-	  1. Reference-https://eclipse.org/downloads/<br/>
+<h2>5.How to include static library into XcodeProject</h2><br/>
+	1.download the sdk from github
+	2.unzip and find the velocityLibrary folder .
+	3.drag and drop the folder into your existing XcodeProject.
+	4.include these headers where you are using the library variables.
+	5.these files should be included 
+		5.1 #import "Reachability.h"			//import this header
+		5.2 #import "ErrorPaymentResponse.h"		//import this header
+		5.3 #import "BankcardTransactionResponsePro.h"	//import this header
+		5.4 #import "BancardCaptureResponse.h"		//import this header
+		5.5 #import "VelocityResponse.h"		//import this header
+		5.6 #import "VelocityPaymentTransaction.h"	//import this header
+
      
-  <h2>6. Deployment Instructions for Android-SDK and Velocity Sample IOS Application </h2><br/>
+  
 
-<b>6.1 IOSSDK</b> <br/>
- 1.Two jar <b>axis-1.4.jar</b> and <b>velocitylibrary.jar </b><br/>
- <b> 6.2 How to use the jar file with Eclipse IDE</b><br/>
- 1. To use a IOSlibrary (JAR file) inside your IOSproject<br/>
- 2. you can simple copy the JAR file into the folder called libs in your application.<br/>
- 3. Right click project then select build-path/configure-build-path.
- 4. Add two velocitylibrary.jar and axis-1.4.jar.
- 
-<b>6.3 Velocity Sample IOSApplication</b> <br/>
- 
- 1. Find the sample IOSapplication file  <b>VelocityCardSample.apk </b> inside the folder  velocityCardSample/bin/<br/>
 
- 2. install <b> VelocityCardSample.apk </b> file on the  device. <br/>
- 3. click the install file. <br/>
+ 
+
  
  
 
