@@ -37,7 +37,7 @@ This class provides the implementation of the following methods: <br/>
 1.-(void)VelocityProcessorFinishedWithSuccess:(id )successAny;   //delegate method for successful transaction<br/>
 2.-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;   //delegate method for Failed transaction<br/>
 
-<h2>1. -(void)createCardTokenIsOnlySignOn:NO; </h2><br/>
+<h2>1. createCardToken(....) </h2><br/>
 The method is responsible for the invocation of verify operation on the Velocity REST server.<br/>
  <b>velocityPaymentTransaction Modal Class</b> - holds the values for the verify request VelocityPaymentTransaction <br/>
                1.cardType - String     <br/>
@@ -51,7 +51,7 @@ The method is responsible for the invocation of verify operation on the Velocity
 		9.state - String     <br/>
                10.cvDataProvided - String    <br/>
                11.cVData - String   <br/>
-	12.amount - String       <br/>
+	       12.amount - String       <br/>
                13.currencyCode - String       <br/> 
                14.customerPresent - String     <br/>
                15.employeeId - String     <br/>
@@ -117,7 +117,7 @@ initialize the object<br/>
 	 obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken;
 					}
 
-<h2>1.2 -(void)authoriseWToken:(BOOL)isWithToken;</h2><br/>
+<h2>1.2 authoriseWToken(...);</h2><br/>
 The method is responsible for the invocation of authorize operation on the Velocity REST server.<br/>
 <b>[velocityProcessorObj authoriseWToken:YES];</b><br/>
 The method is responsible for the invocation of authorize operation with token on the Velocity REST server.<br/>
