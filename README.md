@@ -489,36 +489,35 @@ The method is responsible for the invocation of adjust operation on the Velocity
 
 <h2>1.7 returnById(...) </h2><br/>
 The method is responsible for the invocation of returnById operation on the Velocity REST server.<br/>
-<b>public VelocityResponse returnById(VelocityPaymentTransaction velocityPaymentTransaction)</b><br/>
+<b>-(void)returnById;</b><br/>
 
-@parameter <b>velocityPaymentTransaction </b> - holds the values for the returnById request VelocityPaymentTransaction <br/>
+Modal class  <b>velocityPaymentTransaction </b> - holds the values for the returnById request VelocityPaymentTransaction <br/>
                  1. transactionId - String <br/>
 		 2. amount - String   <br/> 
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
-  VelocityPaymentTransaction  velocityPaymentTransaction=new VelocityPaymentTransaction();<br/>
-   velocityPaymentTransaction.setAmount("10.23");
-   velocityPaymentTransaction.setTransactionId("AC564B5C021245D68014658C7DBE6A7B");<br/>
-@returnType  <b>VelocityResponse</b>  <br/> 
-
 <b>Sample code</b><br/> 
+	VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
+    	vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
+	vPTMCObj.amount = self.testCashTxtField.text;
+	//take transection id prom previous capture method success delegate
+
        1.Request a returnById() method from API .<br/> 
-        VelocityResponse velocityResponse=velocityProcessor.returnById(velocityPaymentTransaction);<br/>
-       2.Get the success or Error response 	from API.<br/>  
+        [velocityProcessorObj returnById];<br/>
+       2.Get the success or Error response from API.<br/> 
        
-          if(velocityResponse!=null){  
-		    	//Here get the successful status then show the corresponding message.  <br/>
-				 if(velocityResponse.getBankcardTransactionResponse() != null && velocityResponse.getBankcardTransactionResponse().getStatus()!=null){  
-				     Log.i("VelocityProcessor", "ReturnById: " + velocityResponse.getBankcardTransactionResponse().getStatus());  
-
-				   // TODO your business logic to complete payment...
-
-				 } else if(velocityResponse.getErrorResponse()!=null && velocityResponse.getErrorResponse().getErrorId()!=null){  
-				 
-				   Log.i("VelocityProcessor", "Error response: " +velocityResponse.getErrorResponse().getErrorId());  
-
-				   // TODO your business logic to complete payment...
-				}
-       }
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+      
+	 //Here get the Error status then show the corresponding message.	
+          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
+          class]]&&__txRespons_obj.errorId!=nil) { 
+						   }
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ 	//Here get the Success status then show the corresponding message.
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
+	__txRespons_obj.status!=nil ) { 
+	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
+		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>//save transection 				id for void method,return by id and return unlinked method
+					}
 
 <h2>1.8 returnUnLinked(...) </h2><br/>
 The method is responsible for the invocation of returnUnLinked operation on the Velocity REST server.<br/>
