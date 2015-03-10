@@ -384,13 +384,12 @@ Other wise have to fill the card data information.
 2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
 
  	//Here get the Success status then show the corresponding message.
-	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
-	__txRespons_obj.status!=nil ) { 
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BancardCaptureResponse 				  		class]]&&__txRespons_obj.status!=nil){
 	//Assign value for further transection data 
 	  
 	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
 		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>
-		obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken; //set value for payentAccount data                                            									token<br/>
+		obj.paymentAccountDataToken = self._txRespons_obj.paymentAccountDataToken; //set value for payentAccount data token<br/>
 		obj.batchID =self._txRespons_obj.batchId; //set value for batchID<br/>
 	 
 	
@@ -424,8 +423,8 @@ The method is responsible for the invocation of capture operation on the Velocit
 						   }
 	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
  	//Here get the Success status then show the corresponding message.
-	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
-	__txRespons_obj.status!=nil ) { 
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BancardCaptureResponse 				  
+		class]]&&__txRespons_obj.status!=nil){
 	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
 		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>//save transection 				id for void method,return by id and return unlinked method
 					}
@@ -652,7 +651,7 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
 
 <h2>2. VelocityResponse </h2><br/>
 
-This class implements the responses coming from the Velocity server for a payment transaction request. <br/>
+This Modal class implements the responses coming from the Velocity server for a payment transaction request. <br/>
 It has the following attributes with name and datatype.<br/>
      1.  statusCode - String <br/>
      2.  message - String <br/>
