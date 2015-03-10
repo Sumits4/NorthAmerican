@@ -521,9 +521,9 @@ Modal class  <b>velocityPaymentTransaction </b> - holds the values for the retur
 
 <h2>1.8 returnUnLinked(...) </h2><br/>
 The method is responsible for the invocation of returnUnLinked operation on the Velocity REST server.<br/>
-<b> public VelocityResponse returnUnLinked(VelocityPaymentTransaction velocityPaymentTransaction)</b><br/>
+<b> -(void)returnUnlinkedisWithToken:(BOOL)isWithToken;</b><br/>
 
-@parameter <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
+Modal class  <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
              1. cardType - String     <br/>
 			2. cardholderName - String     <br/>
             3.  panNumber-String   <br/>
@@ -562,165 +562,94 @@ The method is responsible for the invocation of returnUnLinked operation on the 
 	        36. FeeAmount - String   <br/>
             37. tipAmount - String   <br/>
             38. partialApprovalCapable - String   <br/>
+            
 <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
- VelocityPaymentTransaction  velocityPaymentTransaction=new VelocityPaymentTransaction();<br/>
-               velocityPaymentTransaction.setCardType("Visa"); <br/>
-	      velocityPaymentTransaction.setCardholderName("ashish"); <br/>
-	       velocityPaymentTransaction.setPanNumber("4012888812348882"); <br/>
-		 velocityPaymentTransaction.setExpiryDate("0113"); <br/>
-		 velocityPaymentTransaction.setStreet("4 corporate sq"); <br/>
-		 velocityPaymentTransaction.setState("CO"); <br/>
-		 velocityPaymentTransaction.setStateProvince("CO"); <br/>
-		 velocityPaymentTransaction.setPostalCode("80202"); <br/>
-		 velocityPaymentTransaction.setPhone("7849477899"); <br/>
-		 velocityPaymentTransaction.setcVData("123"); <br/>
-		 velocityPaymentTransaction.setCvDataProvided("Provided"); <br/>
-		 velocityPaymentTransaction.setAmount("12.34"); <br/>
-		 velocityPaymentTransaction.setCurrencyCode("USD"); <br/>
-		 velocityPaymentTransaction.setCustomerPresent("Ecommerce"); <br/>
-		 velocityPaymentTransaction.setEmployeeId("11"); <br/>
-		 velocityPaymentTransaction.setEntryMode("Keyed"); <br/>
-		 velocityPaymentTransaction.setIndustryType("Ecommerce"); <br/>
-		 velocityPaymentTransaction.setEmail("ashishg2@chetu.com"); <br/>
-		 velocityPaymentTransaction.setTransactionDateTime("2013-04-03T13:50:16"); <br/>
-		 velocityPaymentTransaction.setCity("Denver"); <br/>
-		 velocityPaymentTransaction.setReportingDataReference("001"); <br/>
-		velocityPaymentTransaction.setTransactionDataReference("xyt"); <br/>
-		velocityPaymentTransaction.setQuasiCash(false);<br/>
-		velocityPaymentTransaction.setPartialShipment(false);<br/>
-		velocityPaymentTransaction.setSignatureCaptured(false);<br/>
-		velocityPaymentTransaction.setPartialApprovalCapable("NotSet");<br/>
-		velocityPaymentTransaction.setCountryCode("");<br/>
-		velocityPaymentTransaction.setTipAmount("2.34");<br/>
-		velocityPaymentTransaction.setBusinnessName("MomCorp");<br/>
-		velocityPaymentTransaction.setComment("a test comment");<br/>
-		velocityPaymentTransaction.setDescription("a test description");<br/>
-		velocityPaymentTransaction.setCashBackAmount("0.0");<br/>
-		velocityPaymentTransaction.setGoodsType("NotSet");<br/>
-		velocityPaymentTransaction.setInvoiceNumber(""); <br/>
-		velocityPaymentTransaction.setOrderNumber("629203"); <br/>
-		velocityPaymentTransaction.setFeeAmount("1000.05");<br/>
-           velocityPaymentTransaction.setPaymentAccountDataToken("78af6524-3325-4a01-be0f-3eea3378d62421664463-8f5f-4c87               -bba2-d572d6b70d55"); <br/>
-@returnType  <b>VelocityResponse</b>  <br/> 
+
+ 
 <b>Sample code</b><br/> 
+
+	 VelocityPaymentTransaction *vPTMCObj;//velocityProcessorTransactionModelClass Object
+    	vPTMCObj=[PaymentObjecthandler getModelObject];//method to initialize the modal class object
+    	vPTMCObj.transactionName = [self.transactionTypebtn titleForState:UIControlStateNormal];
+    	vPTMCObj.state = [self.stateBtn titleForState:UIControlStateNormal]; 
+    	vPTMCObj.country = self.countryTxtField.text; 
+    	vPTMCObj.amountforadjust = self.testCashAdjustTxtFeild.text; 
+    	vPTMCObj.cardType = [self.cardTypeBtn titleForState:UIControlStateNormal]; 
+    	vPTMCObj.cardholderName = self.nameTxtField.text; 
+    	vPTMCObj.panNumber=self.creditCardNotxtField.text; 
+    	vPTMCObj.expiryDate = [self.monthTextField.text stringByAppendingString:self.yearTextField.text]; 
+    	vPTMCObj.isNullable = false; 
+    	vPTMCObj.street = self.streetTxtField.text; 
+    	vPTMCObj.city = self.cityTxtField.text; 
+    	vPTMCObj.stateProvince = [self.stateBtn titleForState:UIControlStateNormal];
+    	vPTMCObj.accountType=@"NotSet";
+	 vPTMCObj.postalCode = self.zipTxtField.text;
+    	vPTMCObj.phone= self.phoneTxtField.text;
+    	vPTMCObj.cvDataProvided = @"Provided";
+    	vPTMCObj.cVData = self.cVCtxtField.text; 
+    	vPTMCObj.amount = self.testCashTxtField.text; 
+	vPTMCObj.currencyCode = self.currencyCodeTxtField.text; 
+    	vPTMCObj.customerPresent = @"Present";
+    	vPTMCObj.employeeId = self.customerIDtxtField.text;
+    	vPTMCObj.entryMode = @"Keyed";
+    	vPTMCObj.industryType = @"Ecommerce";
+    	vPTMCObj.email = self.emailTxtField.text;
+    	vPTMCObj.countryCode = @"USA";
+    	vPTMCObj.businnessName = @"MomCorp";
+    	vPTMCObj.CustomerId = @"11";
+    	vPTMCObj.comment = @"a test comment";
+	vPTMCObj.discription = @"a test description";
+    	vPTMCObj.reportingDataReference = @"001";
+    	vPTMCObj.transactionDataReference = @"xyt";
+    	vPTMCObj.transactionDateTime=@"2013-04-03T13:50:16";
+    	vPTMCObj.cashBackAmount = @"0.0";
+    	vPTMCObj.goodsType = @"NotSet";
+    	vPTMCObj.invoiceNumber = @"808";
+    	vPTMCObj.orderNumber = @"629203";
+    	vPTMCObj.FeeAmount = @"1000.05";
+    	vPTMCObj.tipAmount = self.tipAmountTxtField.text;//this amount is used for capture<br/>
+    	vPTMCObj.keySerialNumber=@"";
+    	vPTMCObj.identificationInformation=@"";
+    	vPTMCObj.ecommerceSecurityData = @"";
+    	vPTMCObj.track1Data = @"";
+    	vPTMCObj.street2 = @"";
+    	vPTMCObj.fax = @"";
+    	vPTMCObj.customerTaxId = @"";
+    	vPTMCObj.shippingData = @"";
+    	vPTMCObj.securePaymentAccountData = @"";
+    	vPTMCObj.encryptionKeyId = @"";
+    	vPTMCObj.swipeStatus = @"";
+    	vPTMCObj.approvalCode = @"";
+    	vPTMCObj.internetTransactionData = @"";
+    	vPTMCObj.isPartialShipment = false;
+    	vPTMCObj.isSignatureCaptured = false; 
+    	vPTMCObj.terminalID = @"";
+    	vPTMCObj.partialApprovalCapable = @"NotSet";
+    	vPTMCObj.scoreThreshold = @"";
+    	vPTMCObj.isQuasiCash=false; 
+    	[PaymentObjecthandler setModelObject:vPTMCObj]; 
+    	
        1.Request a returnUnLinked() method from API .<br/> 
-        VelocityResponse velocityResponse=velocityProcessor.returnUnLinked(velocityPaymentTransaction);<br/>
-       2.Get the success or Error response 	from API.<br/>  
        
-          if(velocityResponse!=null){   
-		    	//Here get the successful status then show the corresponding message.   <br/>
-				 if(velocityResponse.getBankcardTransactionResponse() != null && velocityResponse.getBankcardTransactionResponse().getStatus()!=null){   
-				     Log.i("VelocityProcessor", "returnUnLinked: " + velocityResponse.getBankcardTransactionResponse().getStatus());  
-
-				   // TODO your business logic to complete payment...
-
-				 } else if(velocityResponse.getErrorResponse()!=null && velocityResponse.getErrorResponse().getErrorId()!=null){  
-				 
-				   Log.i("VelocityProcessor", "Error response: " +velocityResponse.getErrorResponse().getErrorId()); 
-
-				   // TODO your business logic to complete payment...
-				}
-       }
-<h2>1.9 returnUnLinkedWithoutToken(...) </h2><br/>
-The method is responsible for the invocation of returnUnLinked operation on the Velocity REST server.<br/>
-<b> public VelocityResponse returnUnLinkedWithoutToken(VelocityPaymentTransaction velocityPaymentTransaction)</b><br/>
-
-@parameter <b>velocityPaymentTransaction </b> - holds the values for the returnUnlinked request VelocityPaymentTransaction<br/>
-             1. cardType - String     <br/>
-			2. cardholderName - String     <br/>
-            3.  panNumber-String   <br/>
-            4.   expiryDate - String   <br/>
-			5.   street - String   <br/>
-            6.   stateProvince - String     <br/>
-            7.   postalCode - String   <br/>
-            8.   phone - String    <br/>
-			9.    reportingDataReference String <br/>
-            10.   transactionDataReference  String<br/>
-			11.   state - String     <br/>
-            12.   cvDataProvided - String    <br/>
-			13.   amount - String       <br/>
-            14.   currencyCode - String       <br/> 
-            15.   customerPresent - String     <br/>
-            16.   employeeId - String     <br/>
-            17.   entryMode - String      <br/>
-	        18.   industryType - String   <br/>
-            19.   email - String   <br/>
-			20.   transactionDateTime - String   <br/>
-			21.   city -String <br/>
-			22.   quasiCash - boolean    <br/>
-            23.  country - String     <br/>
-            24. transactionId- String <br/>
-            25.  signatureCaptured - boolean    <br/>
-            26.  partialShipment - boolean   <br/>
-            27.  countryCode - String     <br/>
-            28.  businnessName - String   <br/>
-            29. comment - String    <br/>
-            30. description - String    <br/>
-            31.partialApprovalCapable - String   <br/>
-            32. cashBackAmount - String       <br/> 
-            33. goodsType - String     <br/>
-            34.invoiceNumber - String     <br/>
-            35.orderNumber - String      <br/>
-	        36. FeeAmount - String   <br/>
-            37. tipAmount - String   <br/>
- <h2>How to set the Ui value on VelocityPaymentTransaction model </h2><br/>
- VelocityPaymentTransaction  velocityPaymentTransaction=new VelocityPaymentTransaction();<br/>
-               velocityPaymentTransaction.setCardType("Visa"); <br/>
-	      velocityPaymentTransaction.setCardholderName("ashish"); <br/>
-	       velocityPaymentTransaction.setPanNumber("4012888812348882"); <br/>
-		 velocityPaymentTransaction.setExpiryDate("0113"); <br/>
-		 velocityPaymentTransaction.setStreet("4 corporate sq"); <br/>
-		 velocityPaymentTransaction.setState("CO"); <br/>
-		 velocityPaymentTransaction.setStateProvince("CO"); <br/>
-		 velocityPaymentTransaction.setPostalCode("80202"); <br/>
-		 velocityPaymentTransaction.setPhone("7849477899"); <br/>
-		 velocityPaymentTransaction.setcVData("123"); <br/>
-		 velocityPaymentTransaction.setCvDataProvided("Provided"); <br/>
-		 velocityPaymentTransaction.setAmount("12.34"); <br/>
-		 velocityPaymentTransaction.setCurrencyCode("USD"); <br/>
-		 velocityPaymentTransaction.setCustomerPresent("Ecommerce"); <br/>
-		 velocityPaymentTransaction.setEmployeeId("11"); <br/>
-		 velocityPaymentTransaction.setEntryMode("Keyed"); <br/>
-		 velocityPaymentTransaction.setIndustryType("Ecommerce"); <br/>
-		 velocityPaymentTransaction.setEmail("ashishg2@chetu.com"); <br/>
-		 velocityPaymentTransaction.setTransactionDateTime("2013-04-03T13:50:16"); <br/>
-		 velocityPaymentTransaction.setCity("Denver"); <br/>
-		 velocityPaymentTransaction.setReportingDataReference("001"); <br/>
-		velocityPaymentTransaction.setTransactionDataReference("xyt"); <br/>
-		velocityPaymentTransaction.setQuasiCash(false);<br/>
-		velocityPaymentTransaction.setPartialShipment(false);<br/>
-		velocityPaymentTransaction.setSignatureCaptured(false);<br/>
-		velocityPaymentTransaction.setPartialApprovalCapable("NotSet");<br/>
-		velocityPaymentTransaction.setCountryCode("");<br/>
-		velocityPaymentTransaction.setTipAmount("2.34");<br/>
-		velocityPaymentTransaction.setBusinnessName("MomCorp");<br/>
-		velocityPaymentTransaction.setComment("a test comment");<br/>
-		velocityPaymentTransaction.setDescription("a test description");<br/>
-		velocityPaymentTransaction.setCashBackAmount("0.0");<br/>
-		velocityPaymentTransaction.setGoodsType("NotSet");<br/>
-		velocityPaymentTransaction.setInvoiceNumber(""); <br/>
-		velocityPaymentTransaction.setOrderNumber("629203"); <br/>
-		velocityPaymentTransaction.setFeeAmount("1000.05");<br/>
-@returnType  <b>VelocityResponse</b>  <br/> 
-<b>Sample code</b><br/> 
-       1.Request a returnUnLinkedWithoutToken() method from API .<br/> 
-        VelocityResponse velocityResponse=velocityProcessor.returnUnLinkedWithoutToken(velocityPaymentTransaction);<br/>
-       2.Get the success or Error response 	from API.<br/>  
+		[velocityProcessorObj returnUnlinkedisWithToken:YES]; //return unlinked method call
+		[velocityProcessorObj returnUnlinkedisWithToken:NO];  //return unlinked without token method call
+		
+	2.Get the success or Error response from API.<br/> 
        
-          if(velocityResponse!=null){   
-		    	//Here get the successful status then show the corresponding message.   <br/>
-				 if(velocityResponse.getBankcardTransactionResponse() != null && velocityResponse.getBankcardTransactionResponse().getStatus()!=null){   
-				     Log.i("VelocityProcessor", "returnUnLinked: " + velocityResponse.getBankcardTransactionResponse().getStatus());  
+	2.1 <b>-(void)VelocityProcessorFailedWithErrorMessage:(id )failedAny;</b><br/>
+      
+	 //Here get the Error status then show the corresponding message.	
+          if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[ErrorPaymentResponse 		  
+          class]]&&__txRespons_obj.errorId!=nil) { 
+						   }
+	2.2 <b>-(void)VelocityProcessorFinishedWithSuccess:(id )successAny; </b><br/>
+ 	//Here get the Success status then show the corresponding message.
+	if (__txRespons_obj!=nil && [self._txRespons_obj isKindOfClass:[BankcardTransactionResponsePro class]]&& 	
+	__txRespons_obj.status!=nil ) { 
+	 VelocityPaymentTransaction *obj =[PaymentObjecthandler getModelObject];<br/>
+		obj.transectionID=self._txRespons_obj.transactionId;   //set value for TransectionID<br/>//save transection 				id for void method,return by id and return unlinked method
+					}
 
-				   // TODO your business logic to complete payment...
-
-				 } else if(velocityResponse.getErrorResponse()!=null && velocityResponse.getErrorResponse().getErrorId()!=null){  
-				 
-				   Log.i("VelocityProcessor", "Error response: " +velocityResponse.getErrorResponse().getErrorId()); 
-
-				   // TODO your business logic to complete payment...
-				}
-       }
 <h2>2. VelocityResponse </h2><br/>
 
 This class implements the responses coming from the Velocity server for a payment transaction request. <br/>
