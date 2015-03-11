@@ -851,11 +851,11 @@ The Velocity sample IOS Application is able to test the following transaction me
 11. ReturnUnlinked W/O token - This method proceeds with the card details when payment account data token is not available.<br/>
 Depending upon the type of transaction performed with request input data, response is generated from the velocity server which can be viewed on the Result page. <br/>
 <h2>5.How to include static library into XcodeProject</h2><br/>
-	1.download the sdk from github
-	2.unzip and find the velocityLibrary folder .
-	3.drag and drop the folder into your existing XcodeProject.
-	4.include these headers where you are using the library variables.
-	5.these files should be included 
+	1.download the sdk from github<br/>
+	2.unzip and find the velocityLibrary folder .<br/>
+	3.drag and drop the folder into your existing XcodeProject.<br/>
+	4.include these headers where you are using the library variables.<br/>
+	5.these files should be included<br/> 
 		5.1 #import "Reachability.h"			//import this header<br/>
 		5.2 #import "ErrorPaymentResponse.h"		//import this header<br/>
 		5.3 #import "BankcardTransactionResponsePro.h"	//import this header<br/>
