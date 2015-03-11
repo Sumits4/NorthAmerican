@@ -856,12 +856,12 @@ Depending upon the type of transaction performed with request input data, respon
 	3.drag and drop the folder into your existing XcodeProject.
 	4.include these headers where you are using the library variables.
 	5.these files should be included 
-		5.1 #import "Reachability.h"			//import this header
-		5.2 #import "ErrorPaymentResponse.h"		//import this header
-		5.3 #import "BankcardTransactionResponsePro.h"	//import this header
-		5.4 #import "BancardCaptureResponse.h"		//import this header
-		5.5 #import "VelocityResponse.h"		//import this header
-		5.6 #import "VelocityPaymentTransaction.h"	//import this header
+		5.1 #import "Reachability.h"			//import this header<br/>
+		5.2 #import "ErrorPaymentResponse.h"		//import this header<br/>
+		5.3 #import "BankcardTransactionResponsePro.h"	//import this header<br/>
+		5.4 #import "BancardCaptureResponse.h"		//import this header<br/>
+		5.5 #import "VelocityResponse.h"		//import this header<br/>
+		5.6 #import "VelocityPaymentTransaction.h"	//import this header<br/>
 
      
   
